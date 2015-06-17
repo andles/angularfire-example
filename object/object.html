@@ -1,0 +1,36 @@
+<div>
+  <h1>Object Page</h3>
+  <hr>
+  <p>Object Ctrl Connection Test: {{test}}</p>
+  <p>resolve of currentUser Test: {{currentUser.password.email}}</p>
+  <hr>
+  <div>
+    <div>
+      <div>
+        <h3>Add Primitive to $firebaseObject</h3>
+        <input ng-model="primitive">
+        <button ng-click="addPrimitiveToObject()">Add Primitive</button>
+      </div>
+      <div>
+        <h3>Add Object to $firebaseObject</h3>
+        <input ng-model="exfireSubObj.propOne">
+        <input ng-model="exfireSubObj.propTwo">
+        <input ng-model="exfireSubObj.propThree">
+        <button ng-click="addObjectToObject()">Add Object</button>
+      </div>
+    </div>
+    <div>
+      <h2>Your Firebase Data as $firbaseObject</h2>
+      <div ng-repeat="(key, value) in exfireObj">
+        <hr>
+        <div>
+          <span>{{key}}: </span><span >{{value}}</span>
+        </div>
+        <div ng-show="value.propOne">{{value.propOne}}</div>
+        <div ng-show="value.propTwo">{{value.propTwo}}</div>
+        <div ng-show="value.propThree">{{value.propThree}}</div>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div>
+  <h1>Array Page</h3>
+  <hr>
+  <p>Array Ctrl Connection Test: {{test}}</p>
+  <p>resolve of currentUser Test: {{currentUser.password.email}}</p>
+  <hr>
+  <div>
+    <div>
+      <div>
+        <h3>Add Primitive to Array</h3>
+        <input ng-model="primitive">
+        <button ng-click="addPrimitiveToArray()">Add Primitive</button>
+      </div>
+      <div>
+        <h3>Add Object to Array</h3>
+        <input ng-model="exfireArrObj.propOne">
+        <input ng-model="exfireArrObj.propTwo">
+        <input ng-model="exfireArrObj.propThree">
+        <button ng-click="addObjectToArray()">Add Object</button>
+      </div>
+    </div>
+    <div>
+      <h2>Your Firebase Data as $firbaseArray</h2>
+      <div ng-repeat="obj in exfireArr">
+        <hr>
+        <h4>At Index: {{$index}}</h4>
+        <span>$id: {{obj.$id}}</span><br>
+        <span>$value: {{obj.$value}}</span><br>
+        <span>propOne: {{obj.propOne}}</span><br>
+        <span>propTwo: {{obj.propTwo}}</span><br>
+        <span>propThree: {{obj.propThree}}</span><br>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>
