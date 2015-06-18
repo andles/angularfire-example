@@ -8,27 +8,33 @@
     <div>
       <div>
         <h3>Add Primitive to Array</h3>
-        <input ng-model="primitive">
+        <code>-key_added_by_firebase-: </code><input ng-model="primitive"><br>
+        <br>
         <button ng-click="addPrimitiveToArray()">Add Primitive</button>
       </div>
       <div>
-        <h3>Add Object to Array</h3>
-        <input ng-model="exfireArrObj.propOne">
-        <input ng-model="exfireArrObj.propTwo">
-        <input ng-model="exfireArrObj.propThree">
+      <h3>Add Object to $firebaseArray</h3>
+      <code> { </code><br>
+        <code> &nbsp;&nbsp; prop1: </code><input ng-model="objToAdd.prop1"><br>
+        <code> &nbsp;&nbsp; prop2: </code><input ng-model="objToAdd.prop2"><br>
+        <code> &nbsp;&nbsp; prop3: </code><input ng-model="objToAdd.prop3"><br>
+        <code> } </code><br>
+        <br>
         <button ng-click="addObjectToArray()">Add Object</button>
       </div>
     </div>
     <div>
       <h2>Your Firebase Data as $firbaseArray</h2>
-      <div ng-repeat="obj in exfireArr">
+      <div ng-repeat="obj in fireArr">
         <hr>
         <h4>At Index: {{$index}}</h4>
-        <span>$id: {{obj.$id}}</span><br>
-        <span>$value: {{obj.$value}}</span><br>
-        <span>propOne: {{obj.propOne}}</span><br>
-        <span>propTwo: {{obj.propTwo}}</span><br>
-        <span>propThree: {{obj.propThree}}</span><br>
+        <code style="display:block"> { </code>
+        <code ng-show="obj.$id" style="display:block"> &nbsp;&nbsp; $id: {{obj.$id}} </code>
+        <code ng-show="obj.$value" style="display:block"> &nbsp;&nbsp; $value: {{obj.$value}} </code>
+        <code ng-show="obj.prop1" style="display:block"> &nbsp;&nbsp; prop1: {{obj.prop1}} </code>
+        <code ng-show="obj.prop2" style="display:block"> &nbsp;&nbsp; prop2: {{obj.prop2}} </code>
+        <code ng-show="obj.prop3" style="display:block"> &nbsp;&nbsp; prop3: {{obj.prop3}} </code>
+        <code style="display:block"> } </code>
       </div>
       <hr>
     </div>

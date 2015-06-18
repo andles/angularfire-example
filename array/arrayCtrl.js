@@ -1,18 +1,20 @@
 angular.module('fire')
-.controller('arrayCtrl', function($scope, fireRoot, currentUser, $firebaseArray) {
+.controller('arrayCtrl', function($scope, currentUser, fireArr) {
 
+  // Couple of quick checks
   $scope.test = 'PASSED';
   $scope.currentUser = currentUser;
 
-  var rootRef = new Firebase(fireRoot.url);
-  $scope.exfireArr = $firebaseArray(rootRef);
+  // Attaching our 'live link' to firebase via the resolve
+  $scope.fireArr = fireArr;
 
+  // Adding a single value or an full object to our firebase
   $scope.addPrimitiveToArray = function() {
-    $scope.exfireArr.$add($scope.primitive);
+    fireArr.$add($scope.primitive);
   };
-
   $scope.addObjectToArray = function() {
-    $scope.exfireArr.$add($scope.exfireArrObj);
+    // Add a new property to a $firebaseArray by putting it in the $add argument
+    fireArr.$add($scope.objToAdd);
   };
 
 });

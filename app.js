@@ -14,21 +14,31 @@ angular.module('fire', ['ngRoute', 'firebase'])
     templateUrl: 'register/register.html',
     controller: 'registerCtrl'
   })
-  .when('/array', {
-    templateUrl: 'array/array.html',
-    controller: 'arrayCtrl',
-    resolve: {
-      currentUser: function(authFactory) {
-        return authFactory.$getAuth();
-      }
-    }
-  })
   .when('/object', {
     templateUrl: 'object/object.html',
     controller: 'objectCtrl',
     resolve: {
+      // Passing through the most recent authenticated user from our global authFactory
       currentUser: function(authFactory) {
         return authFactory.$getAuth();
+      },
+      // Passing a 'live link' to our firebase data from our objectFactory
+      fireObj: function(objectFactory) {
+        return objectFactory;
+      }
+    }
+  })
+  .when('/array', {
+    templateUrl: 'array/array.html',
+    controller: 'arrayCtrl',
+    resolve: {
+      // Passing through the most recent authenticated user from our global authFactory
+      currentUser: function(authFactory) {
+        return authFactory.$getAuth();
+      },
+      // Passing a 'live link' to our firebase data from our arrayFactory
+      fireArr: function(arrayFactory) {
+        return arrayFactory;
       }
     }
   })

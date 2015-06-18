@@ -8,27 +8,32 @@
     <div>
       <div>
         <h3>Add Primitive to $firebaseObject</h3>
-        <input ng-model="primitive">
+        <input ng-model="keyForPrim"><code>: </code><input ng-model="primitive"><br>
+        <br>
         <button ng-click="addPrimitiveToObject()">Add Primitive</button>
       </div>
       <div>
         <h3>Add Object to $firebaseObject</h3>
-        <input ng-model="exfireSubObj.propOne">
-        <input ng-model="exfireSubObj.propTwo">
-        <input ng-model="exfireSubObj.propThree">
+        <input ng-model="keyForObj"><code> { </code><br>
+        <code> &nbsp;&nbsp; prop1: </code><input ng-model="objToAdd.prop1"><br>
+        <code> &nbsp;&nbsp; prop2: </code><input ng-model="objToAdd.prop2"><br>
+        <code> &nbsp;&nbsp; prop3: </code><input ng-model="objToAdd.prop3"><br>
+        <code> } </code><br>
+        <br>
         <button ng-click="addObjectToObject()">Add Object</button>
       </div>
     </div>
     <div>
       <h2>Your Firebase Data as $firbaseObject</h2>
-      <div ng-repeat="(key, value) in exfireObj">
+      <div ng-repeat="(key, value) in boundfireObj">
         <hr>
-        <div>
-          <span>{{key}}: </span><span >{{value}}</span>
-        </div>
-        <div ng-show="value.propOne">{{value.propOne}}</div>
-        <div ng-show="value.propTwo">{{value.propTwo}}</div>
-        <div ng-show="value.propThree">{{value.propThree}}</div>
+        <code>{{key}}: </code>
+        <code ng-show="notObject(value)"> {{value}} </code>
+        <code ng-show="isObject(value)"> { </code>
+        <code ng-show="value.prop1" style="display:block"> &nbsp;&nbsp; prop1: {{value.prop1}}</code>
+        <code ng-show="value.prop2" style="display:block"> &nbsp;&nbsp; prop2: {{value.prop2}}</code>
+        <code ng-show="value.prop3" style="display:block"> &nbsp;&nbsp; prop3: {{value.prop3}}</code>
+        <code ng-show="isObject(value)" style="display:block"> } </code>
       </div>
       <hr>
     </div>
